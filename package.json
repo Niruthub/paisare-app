@@ -23,8 +23,9 @@
     "eject": "react-scripts eject",
     "electron": "electron .",
     "electron:serve": "concurrently -k \"cross-env BROWSER=none npm start\" \"npm run electron:start\"",
-    "electron:build": "yarn build && electron-builder -c.extraMetadata.main=build/main.js",
-    "electron:start": "wait-on tcp:3000 && electron ."  
+    "electron:build": "npm run build && electron-builder -c.extraMetadata.main=build/main.js",
+    "electron:start": "wait-on tcp:3000 && electron .",
+    "package": "build"
   },
   "eslintConfig": {
     "extends": [
@@ -45,6 +46,13 @@
     ]
   },
   "devDependencies": {
-    "electron": "^31.0.0"
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build":{
+    "appId": "com.nirut.Paisare",
+    "directories": {
+      "output": "./release" 
+    }
   }
 }
